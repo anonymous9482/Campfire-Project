@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://xv7ssv0wmydp"]
 
 [ext_resource type="Script" uid="uid://dda7g1ckkixdp" path="res://Scripts/protagonist.gd" id="1_5fgat"]
-[ext_resource type="Texture2D" uid="uid://boyq4ujj5p2w" path="res://icon.svg" id="2_0if5s"]
 [ext_resource type="Texture2D" uid="uid://d02qr38cx70e4" path="res://Assests/PlayerClimbSet.png" id="2_4xlsy"]
 [ext_resource type="Texture2D" uid="uid://cjm2e545ou1bm" path="res://Assests/PlayerNoTorchRunSet.png" id="2_u6h7k"]
 [ext_resource type="Texture2D" uid="uid://dkb43mj85hvma" path="res://Assests/PlayerJumpset.png" id="3_2r1on"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dun8qe68smbd5" path="res://Assests/Player NoTorchSet.png" id="4_su0jr"]
 [ext_resource type="Texture2D" uid="uid://bwxasmdcaw34i" path="res://Assests/PlayerYesTorchSet.png" id="6_gqgmv"]
 [ext_resource type="Texture2D" uid="uid://cfev0g8p0t1ta" path="res://Assests/PlayerYesTorchRunSet.png" id="7_1ivmb"]
+[ext_resource type="Texture2D" uid="uid://bxn02a5d4vs2r" path="res://Light.png" id="9_4xlsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx1al"]
 
@@ -323,7 +323,8 @@ shape = SubResource("RectangleShape2D_lx1al")
 position = Vector2(1.9999998, 0)
 scale = Vector2(1.2500001, 1.25)
 sprite_frames = SubResource("SpriteFrames_2r1on")
-animation = &"PlayerJump"
+animation = &"PlayerYesTorchRun"
+frame_progress = 0.81422424
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=146541963]
 zoom = Vector2(5, 5)
@@ -336,7 +337,7 @@ script = ExtResource("3_u6h7k")
 
 [node name="PointLight2D" type="PointLight2D" parent="Torch" unique_id=1080546604]
 position = Vector2(5, -3)
-texture = ExtResource("2_0if5s")
+texture = ExtResource("9_4xlsy")
 
 [node name="Burning Out" type="Timer" parent="Torch" unique_id=1688055298]
 wait_time = 10.0

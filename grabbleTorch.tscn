@@ -1,20 +1,21 @@
-[gd_scene format=3 uid="uid://bl05ntwtwr7vr"]
+[gd_scene format=3 uid="uid://xy8at881fvv6"]
 
 [ext_resource type="Script" uid="uid://cu0h44244qg20" path="res://Scripts/grabble_torch.gd" id="1_6i2dm"]
-[ext_resource type="Texture2D" uid="uid://boyq4ujj5p2w" path="res://icon.svg" id="1_bvkyf"]
+[ext_resource type="Texture2D" uid="uid://dam2hpd6kt0o0" path="res://Bad torch.png" id="2_xcgw5"]
+[ext_resource type="Texture2D" uid="uid://bxn02a5d4vs2r" path="res://Light.png" id="3_xcgw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcgw5"]
-size = Vector2(22.421871, 22.109371)
+size = Vector2(30.00785, 80.13285)
 
 [node name="GrabbleTorch" type="Node2D" unique_id=1143973062]
 script = ExtResource("1_6i2dm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=142181520]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_bvkyf")
+scale = Vector2(1.1447773, 1.1447773)
+texture = ExtResource("2_xcgw5")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=131600545]
-texture = ExtResource("1_bvkyf")
+texture = ExtResource("3_xcgw5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1238934879]
 
