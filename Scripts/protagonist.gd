@@ -23,10 +23,17 @@ func _physics_process(delta: float) -> void:
 
 	if (inRope):
 		onFloor = true
-		falling = false;
-		print("should be on rope")
+		##print("should be on rope")
 		if (Input.is_action_pressed("Use Rope")):
-			velocity.y = move_toward(velocity.y,0,200*delta)
+			if !(Input.is_action_pressed("Climb Down") || Input.is_action_pressed("Climb Up")):
+				velocity.y = move_toward(velocity.y,0,200*delta)
+			else:
+				if (Input.is_action_pressed("Climb Up")):
+					velocity.y = SPEED/-2 ##move_toward(velocity.y,SPEED/2,100*delta);
+					print("climbing down")
+				if (Input.is_action_pressed("Climb Down")):
+					velocity.y = SPEED/2 ##move_toward(velocity.y,SPEED/-2,100*delta);
+					print("climbing up")
 			holdingRope = true;
 		else:
 			holdingRope = false;
@@ -85,3 +92,5 @@ func _on_rope_detector_area_exited(area: Area2D) -> void:
 	if area in get_tree().get_nodes_in_group("Rope"):
 		print(" and left")
 		inRope = false;
+		falling = !is_on_floor()
+		holdingRope = false
