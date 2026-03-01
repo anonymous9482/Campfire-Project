@@ -94,3 +94,9 @@ func _on_rope_detector_area_exited(area: Area2D) -> void:
 		inRope = false;
 		falling = !is_on_floor()
 		holdingRope = false
+
+func _process(delta: float):
+	if (is_on_floor() && velocity.x != 0 && !$Sprite2D.is_playing()):
+		$Sprite2D.play("PlayerNoTorchRun")
+	else: 
+		$Sprite2D.set_frame_and_progress(0,0.0);
