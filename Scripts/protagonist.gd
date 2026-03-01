@@ -170,7 +170,7 @@ func _process(delta: float): ## This is mostly for the animation so far
 				var foundBottom = false
 				var movingDown = 1
 				while (!foundBottom):
-					if ($"../TileMap".get_cell_tile_data(0,Vector2(usingCord.x,usingCord.y+movingDown))== null && movingDown < 100):
+					if ($"../TileMap".get_cell_tile_data(0,Vector2(usingCord.x,usingCord.y+movingDown))== null && movingDown < 1000):
 						print("Debug 3.5." + str(movingDown))
 						movingDown += 1
 					else:
@@ -193,8 +193,19 @@ func _process(delta: float): ## This is mostly for the animation so far
 							child.setLength(ropeLength)
 							print("Rope Length:" + str(ropeLength))
 	if (Input.is_action_pressed("Use Rope") && !inRope):
-		ropeLength += delta/2
+		ropeLength += delta
 	else:
 		await get_tree().process_frame
 		ropeLength = 0
 	checkDirection()
+
+
+func _on_final_torch_body_entered(body: Node2D) -> void:
+	if body in get_tree().get_nodes_in_group("Protagonist"):
+		var torches = get_tree().get_nodes_in_group("Torch")
+		for torch in torches:
+			torch.relight()
+		await get_tree().create_timer(7).timeout
+		$"../Monster".position = Vector2(-1529.0,54.0)
+		$"../Monster/NavigationRegion2D".enabled = true
+		Globals.canLeave = true;

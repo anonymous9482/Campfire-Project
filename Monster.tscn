@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://srgkne8dv1jl" path="res://Assests/MonsterIGuess.png" id="3_qheve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eupxk"]
-size = Vector2(350, 925)
+size = Vector2(275, 925)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qheve"]
 atlas = ExtResource("3_qheve")
@@ -128,6 +128,7 @@ script = ExtResource("1_ssiii")
 script = ExtResource("2_qheve")
 
 [node name="Monster collision" type="CollisionShape2D" parent="Monster body" unique_id=1626359276]
+position = Vector2(-12.5, 0)
 shape = SubResource("RectangleShape2D_eupxk")
 
 [node name="Monster sprite" type="AnimatedSprite2D" parent="Monster body" unique_id=669631733]

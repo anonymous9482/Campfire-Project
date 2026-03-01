@@ -6,4 +6,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.gainTorch(1)
 		
 		$Sprite2D.texture = load('res://Bad torch unlit.png')
-		$PointLight2D.energy = 0.3
+		$PointLight2D.energy = 0.1
+
+func relight():
+	$PointLight2D.energy = 1
+	$Sprite2D.texture = load('res://Bad torch.png')
