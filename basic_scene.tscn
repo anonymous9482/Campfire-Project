@@ -217,22 +217,22 @@ sources/0 = SubResource("TileSetAtlasSource_r4pny")
 sources/1 = SubResource("TileSetScenesCollectionSource_5f4ac")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cxlks"]
-vertices = PackedVector2Array(-3, 9, -3, 22.828125, -32.210938, 18.867188, -33.75, -73.50781, 166.63281, -80.46094, 77, -23, 372.7578, 184.25781, 347, 184.71875, 347, 169, 370.22656, 22.046875, 219, 169, 219, 80, 247, 80, 247, 38, 77, 23.046875, 200, 38, 196, 41, 75, 41, 75, 9, 165.32813, -23)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(8, 10, 11, 12), PackedInt32Array(9, 8, 12, 13), PackedInt32Array(14, 9, 13, 15), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(14, 17, 18, 5), PackedInt32Array(4, 19, 5), PackedInt32Array(0, 5, 18)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-49.00004, -88.00006, -47, 32, 12, 40, 12, 24, 60, 24, 60, 56, 201.00015, 56.000042, 205.00015, 53.00004, 232.00018, 53.00004, 232.00018, 65.000046, 204.00015, 65.000046, 204, 184, 332, 184, 332, 200, 388, 199, 385.00027, 7.0000076, 92, 8, 92, -8, 180, -8, 182.00012, -96.00006)])
-agent_radius = 15.0
+vertices = PackedVector2Array(368.70313, 180.32813, 351, 180.64844, 351, 165, 366.28906, 26.0625, 230, 165, 230, 37, 79, 27.03125, 79, 37, -7, 5, -7, 18.242188, -28.273438, 15.359375, -29.679688, -69.64844, 162.53906, -76.3125, 73, -27, 73, 5, 161.42188, -27)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(6, 3, 5, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(8, 11, 12, 13), PackedInt32Array(13, 14, 8), PackedInt32Array(12, 15, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-49.00004, -88.00006, -47, 32, 12, 40, 12, 24, 60, 24, 60, 56, 204.00015, 56.000042, 211.00015, 56.000042, 211.00015, 184.00014, 332, 184, 332, 200, 388, 199, 385.00027, 7.0000076, 92, 8, 92, -8, 180, -8, 182.00012, -96.00006)])
+agent_radius = 19.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5f4ac"]
-vertices = PackedVector2Array(8736.109, 170, 8748.8125, 932.34375, 4857.758, 956.65625, 4355, 170, 3581.9219, -2228.3984, 8850.297, -2206.539, 8834.648, -970, 4355, -970, 3633.9375, -580.9297, 4270, -555.5, 4270, 1030, 4833.3203, 1030)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9), PackedInt32Array(9, 7, 3, 10), PackedInt32Array(10, 3, 2, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(3275, -225, 3900, -200, 3900, 1400, 5100, 1400, 5125, 1325, 9125, 1300, 9100, -200, 4725, -200, 4725, -600, 9200, -600, 9225, -2575, 3200, -2600)])
-agent_radius = 370.0
+vertices = PackedVector2Array(8625, 925, 4375, 925, 4375, 275, 8625, 275, 4250, -1075, 4250, -661.3672, 3735.7969, -681.9375, 3690.289, -2122.9531, 8743.969, -2101.9766, 8730.977, -1075)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3275, -225, 3900, -200, 3900, 1400, 5100, 1400, 5625, 1400, 9100, 1400, 9100, -200, 4725, -200, 4725, -600, 9200, -600, 9225, -2575, 3200, -2600)])
+agent_radius = 475.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2b24p"]
 vertices = PackedVector2Array(9243.859, -1328.8594, 9015.273, 975.9922, 5514.422, 934.3125, 5476.1016, -1556.5781)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(5100, -1950, 9650, -1675, 9350, 1350, 5150, 1300)])
-agent_radius = 370.0
+agent_radius = 475.0
 
 [node name="Basic Scene" type="Node2D" unique_id=818341803]
 
@@ -251,7 +251,7 @@ color = Color(0.27387273, 0.27387273, 0.27387273, 1)
 position = Vector2(-92, -40)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Monster" unique_id=103822507]
-position = Vector2(5.722046e-06, 3.8146973e-06)
+position = Vector2(25, 0)
 scale = Vector2(24.99998, 24.99998)
 navigation_polygon = SubResource("NavigationPolygon_cxlks")
 
@@ -272,6 +272,6 @@ motion_mirroring = Vector2(500, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer" unique_id=994719476]
 z_index = -1
-position = Vector2(286, 154)
+position = Vector2(287, 210)
 scale = Vector2(1.002, 1.272)
 texture = ExtResource("6_cxlks")
