@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -175.0
 
 var floating = false;
 var floated = false
+var jumping = false ## This one is specifically for use in the animation, it says that the animation has begun so don't play it again
 
 var hasTorch = true;
 
@@ -104,13 +105,11 @@ func checkDirection():
 	if (velocity.x < 0):
 		transform.x = Vector2(-1,0);
 
-func _process(delta: float):
+func _process(delta: float): ## This is mostly for the animation so far
 	if (is_on_floor() && velocity.x != 0):
 			if (!$Sprite2D.is_playing()):
 				$Sprite2D.play("PlayerNoTorchRun")
 	else:
 		if (is_on_floor()):
 			$Sprite2D.set_frame_and_progress(0,0.0);
-		else: 
-			$Sprite2D.set_frame_and_progress(3,0.0);
 	checkDirection()
