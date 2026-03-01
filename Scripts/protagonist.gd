@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -175.0
 var floating = false;
 var floated = false
 var jumped = 0 ## -1 means just jumped off left wall, 1 means right
+var hitGround = true
 
 var ropeLength = 0
 var maxRopeLength = 0;
@@ -86,6 +87,7 @@ func handle_gravity(delta: float):
 	else:
 		floating = false;
 		floated = false
+		hitGround = false
 
 
 func _on_coyote_timer_timeout() -> void:
