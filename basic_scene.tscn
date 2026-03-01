@@ -227,6 +227,7 @@ texture = ExtResource("2_wl7ka")
 zoom = Vector2(5, 5)
 
 [node name="CoyoteTimer" type="Timer" parent="Protagonist" unique_id=496134739]
+wait_time = 0.4
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1122482099]
 tile_set = SubResource("TileSet_5f4ac")

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var SPEED = 75.0
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -175.0
 
 var falling = true;
 var floating = false;
@@ -27,9 +27,12 @@ func _physics_process(delta: float) -> void:
 
 func handle_gravity(delta: float): 
 	if !is_on_floor():
+		if velocity.y <= 0:
+			velocity += get_gravity() * delta;
 		if !floating:
 			floating = true;
 			$CoyoteTimer.start();
+			velocity += get_gravity() * delta * 0.01;
 	else:
 		falling = false;
 		floating = false;
