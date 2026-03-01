@@ -56,14 +56,12 @@ func _physics_process(delta: float) -> void:
 			floated = true
 			
 	## Handles losing your torch if you fall too far
-	var cords = $"../TileMap".local_to_map(position + Vector2(0 ,velocity.y * delta * 3))
-	#print(delta)
-	var usingCord = Vector2(cords.x,cords.y)
-	if($"../TileMap".get_cell_tile_data(0,usingCord) != null) and !hitGround:
-		print(velocity.y)
-		hitGround = true
-		if (velocity.y > 300):
-			$Torch/PointLight2D.energy -= (velocity.y - 300) / 300
+	var cords = $"../TileMap".local_to_map(position)
+	var usingCord = Vector2(cords.x,cords.y+1)
+	if($"../TileMap".get_cell_tile_data(0,usingCord) != null):
+		if (velocity.y > 250):
+			print (velocity.y)
+			$Torch/PointLight2D.energy -= velocity.y / 500
 			if $Torch/PointLight2D.energy < 0:
 				$Torch/PointLight2D.energy = 0
 

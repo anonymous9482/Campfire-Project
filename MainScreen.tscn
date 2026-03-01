@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bivmghfj3pj05"]
+
+[ext_resource type="Script" uid="uid://c5nok5uohepb1" path="res://new_game.gd" id="1_cshku"]
+[ext_resource type="Texture2D" uid="uid://ka6a5mbieo25" path="res://Assests/edited-photo.png" id="2_i8u74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xls0p"]
+bg_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="MainScreen" type="Control" unique_id=920375705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014653075]
+z_index = -1
+position = Vector2(574.5, 322)
+scale = Vector2(2.314, 2.576)
+texture = ExtResource("2_i8u74")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2054512037]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = -13.0
+offset_right = 576.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 75
+text = "PLACEHOLDER GAME NAME"
+horizontal_alignment = 1
+
+[node name="NewGame" type="Button" parent="." unique_id=1953278282]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = 170.0
+offset_right = 181.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_xls0p")
+text = "New Game"
+script = ExtResource("1_cshku")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1546238325]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -557.0
+offset_top = 86.0
+offset_right = 595.0
+offset_bottom = 202.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Created By Micha Shapiro, Adrian Acevedo, and Aidric Miller"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="NewGame" to="NewGame" method="_on_pressed"]
