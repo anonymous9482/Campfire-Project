@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		##print("should be on rope")
 		if (Input.is_action_pressed("Use Rope")):
 			if !(Input.is_action_pressed("Climb Down") || Input.is_action_pressed("Climb Up")):
-				velocity.y = move_toward(velocity.y,0,500*delta)
+				velocity.y = move_toward(velocity.y,0,750*delta)
 			else:
 				if (Input.is_action_pressed("Climb Up")):
 					velocity.y = SPEED/-2 ##move_toward(velocity.y,SPEED/2,100*delta);
@@ -103,24 +103,6 @@ func checkDirection():
 		transform.x = Vector2(1,0)
 	if (velocity.x < 0):
 		transform.x = Vector2(-1,0);
-
-func checkWhichAnimation():
-	if (!is_on_floor()):
-		if (holdingRope):
-			pass #But the answer is climbSet
-		else:
-			pass #But the answer is jumpSet
-	else:
-		if velocity.x != 0:
-			if ($Torch/PointLight2D.energy > 0):
-				pass #But the answer is YesTorchRun
-			else:
-				pass #But the answer is noTorchRun
-		else:
-			if ($Torch/PointLight2D.energy > 0):
-				pass #But the answer is YesTorch
-			else:
-				pass #But the answer is noTorch
 
 func _process(delta: float): ## This is mostly for the animation so far
 	if (!is_on_floor()):
