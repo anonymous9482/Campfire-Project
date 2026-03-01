@@ -10,7 +10,7 @@ size = Vector2(20, 10)
 size = Vector2(7, 129)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmccy"]
-radius = 20.0
+radius = 15.0
 
 [node name="Rope" type="Node2D" unique_id=1184049864 groups=["Rope"]]
 z_index = -1
@@ -41,6 +41,7 @@ position = Vector2(3.2000008, 64)
 shape = SubResource("RectangleShape2D_jry5w")
 
 [node name="EditArea" type="Area2D" parent="." unique_id=1878099803 groups=["EditArea"]]
+position = Vector2(10, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EditArea" unique_id=1179964398]
 shape = SubResource("CircleShape2D_nmccy")
