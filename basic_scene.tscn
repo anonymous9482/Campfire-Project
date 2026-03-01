@@ -226,37 +226,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(127, -8, 156, -8, 155, 
 
 [node name="Basic Scene" type="Node2D" unique_id=818341803]
 
-[node name="Protagonist" type="CharacterBody2D" parent="." unique_id=735102481 groups=["Protagonist"]]
-script = ExtResource("1_yg2w3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Protagonist" unique_id=1152469911]
-shape = SubResource("RectangleShape2D_lx1al")
-
-[node name="Sprite2D" type="Sprite2D" parent="Protagonist" unique_id=357293128]
-position = Vector2(0, -0.25)
-scale = Vector2(0.15624997, 0.15234375)
-texture = ExtResource("2_wl7ka")
-
-[node name="Camera2D" type="Camera2D" parent="Protagonist" unique_id=68540043]
-zoom = Vector2(5, 5)
-
-[node name="CoyoteTimer" type="Timer" parent="Protagonist" unique_id=496134739]
-wait_time = 0.4
-
-[node name="Torch" type="Node2D" parent="Protagonist" unique_id=533646459]
-script = ExtResource("3_lx1al")
-
-[node name="PointLight2D" type="PointLight2D" parent="Protagonist/Torch" unique_id=953205533]
-position = Vector2(13, -10)
-texture = ExtResource("2_wl7ka")
-
-[node name="Sprite2D" type="Sprite2D" parent="Protagonist/Torch" unique_id=18007883]
-position = Vector2(13, -11)
-scale = Vector2(0.046874996, 0.046874996)
-texture = ExtResource("2_wl7ka")
-
-[node name="Burning Out" type="Timer" parent="Protagonist/Torch" unique_id=1852152662]
-wait_time = 10.0
+[node name="Protagonist" parent="." unique_id=2114517761 instance=ExtResource("1_r4pny")]
+z_index = 1
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1122482099]
 tile_set = SubResource("TileSet_5f4ac")
@@ -269,9 +240,8 @@ color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 [node name="GrabbleTorch" parent="." unique_id=1143973062 instance=ExtResource("5_r4pny")]
 position = Vector2(78, 11)
 
-[node name="Rope" parent="." unique_id=1184049864 node_paths=PackedStringArray("player") instance=ExtResource("6_5f4ac")]
+[node name="Rope" parent="." unique_id=1184049864 instance=ExtResource("6_5f4ac")]
 position = Vector2(113, 19)
-player = NodePath("../Protagonist")
 
 [node name="Monster" parent="." unique_id=508455538 instance=ExtResource("4_lx1al")]
 position = Vector2(-147, -49)
@@ -284,6 +254,3 @@ enabled = false
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Monster" unique_id=111728210]
 position = Vector2(0, 3)
 navigation_polygon = SubResource("NavigationPolygon_2b24p")
-
-[connection signal="timeout" from="Protagonist/CoyoteTimer" to="Protagonist" method="_on_coyote_timer_timeout"]
-[connection signal="timeout" from="Protagonist/Torch/Burning Out" to="Protagonist/Torch" method="_on_burning_out_timeout"]
