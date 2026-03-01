@@ -9,6 +9,8 @@ var floating = false;
 var floated = false
 var jumped = 0 ## -1 means just jumped off left wall, 1 means right
 
+var ropeLength = 0
+
 var presentAnimation : String
 
 var inRope = false;
@@ -52,13 +54,14 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		if (onFloor || holdingRope):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			jumped = 0
+			if (!holdingRope):
+				jumped = 0
 
 	move_and_slide()
 
@@ -133,4 +136,30 @@ func _process(delta: float): ## This is mostly for the animation so far
 				if (presentAnimation != "PlayerNoTorch"):
 					$Sprite2D.play("PlayerNoTorch")
 					presentAnimation = "PlayerNoTorch"
+	if (Input.is_action_just_released("Use Rope") && !inRope):
+		var cords = $"../TileMap".local_to_map(position)
+		var usingCord = Vector2(cords.x,cords.y+1)
+		if($"../TileMap".get_cell_tile_data(0,usingCord) != null):
+			usingCord = Vector2(cords.x+transform.x.x,cords.y+1)
+			if ($"../TileMap".get_cell_tile_data(0,usingCord) == null):
+				var whichRope
+				if (transform.x.x == 1):
+					whichRope = 1
+				if (transform.x.x == -1):
+					whichRope = 3
+				$"../TileMap".set_cell(0,usingCord,1,Vector2(0,0),whichRope)
+				await get_tree().process_frame
+				var children := $"../TileMap".get_children()
+				for child in children:
+					print("We got this far")
+					if (child in get_tree().get_nodes_in_group("Rope")):
+						print("this one's a rope")
+						if child.instanceOfRope == Globals.ropesPlaced - 1:
+							child.setLength(ropeLength)
+							print("Rope Length:" + str(ropeLength))
+	if (Input.is_action_pressed("Use Rope") && !inRope):
+		ropeLength += delta/2
+	else:
+		await get_tree().process_frame
+		ropeLength = 0
 	checkDirection()
