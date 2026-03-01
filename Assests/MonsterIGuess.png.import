@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crdg2thu5y3ii"
-path="res://.godot/imported/pixil-frame-0.png-fa0f5873657c14a7b680b1126f024b27.ctex"
+uid="uid://b2vusp32pamf8"
+path="res://.godot/imported/MonsterIGuess.png-9ca9084d071f40fb805af7bc66f0c493.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-fa0f5873657c14a7b680b1126f024b27.ctex"]
+source_file="res://Assests/MonsterIGuess.png"
+dest_files=["res://.godot/imported/MonsterIGuess.png-9ca9084d071f40fb805af7bc66f0c493.ctex"]
 
 [params]
 
