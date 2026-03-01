@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Campfire Project"
-run/main_scene="uid://14cg0njwc8qi"
+run/main_scene="uid://bivmghfj3pj05"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*uid://cp33mvhvjeb8v"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [global_group]
 

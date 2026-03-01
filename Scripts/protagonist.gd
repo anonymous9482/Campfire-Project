@@ -58,7 +58,8 @@ func _physics_process(delta: float) -> void:
 	var cords = $"../TileMap".local_to_map(position)
 	var usingCord = Vector2(cords.x,cords.y+1)
 	if($"../TileMap".get_cell_tile_data(0,usingCord) != null):
-		if (velocity.y > 200):
+		if (velocity.y > 250):
+			print (velocity.y)
 			$Torch/PointLight2D.energy -= velocity.y / 500
 			if $Torch/PointLight2D.energy < 0:
 				$Torch/PointLight2D.energy = 0

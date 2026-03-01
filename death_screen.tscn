@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://ds0k4iqreu8sr"]
 
+[ext_resource type="Texture2D" uid="uid://crtiki0tsmcmq" path="res://Assests/Mountains.png" id="1_ex68u"]
 [ext_resource type="Script" uid="uid://drsy7eu3ldlyh" path="res://returnToGameButton.gd" id="1_if853"]
+[ext_resource type="Texture2D" uid="uid://dun8qe68smbd5" path="res://Assests/Player NoTorchSet.png" id="3_6bi5g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7hb72"]
 font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bi5g"]
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 0.70980394)
 
 [node name="Death Screen" type="Control" unique_id=1977863445]
 layout_mode = 3
@@ -12,6 +17,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=609628948]
+z_index = -1
+position = Vector2(581.45483, 334.12943)
+rotation = -3.1415925
+scale = Vector2(2.3298194, 2.6570356)
+texture = ExtResource("1_ex68u")
 
 [node name="Label" type="Label" parent="." unique_id=742896102]
 layout_mode = 0
@@ -22,13 +34,28 @@ text = "YOU DIED"
 label_settings = SubResource("LabelSettings_7hb72")
 
 [node name="Button" type="Button" parent="." unique_id=546565740]
-layout_mode = 0
-offset_left = 379.0
-offset_top = 197.0
-offset_right = 771.0
-offset_bottom = 314.0
-theme_override_font_sizes/font_size = 50
-text = "Return to Game"
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -142.0
+offset_right = 178.25
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_6bi5g")
+text = "Try Again"
 script = ExtResource("1_if853")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1495421539]
+position = Vector2(576, 316)
+scale = Vector2(15, 15)
+texture = ExtResource("3_6bi5g")
+region_enabled = true
+region_rect = Rect2(158.77579, 0, 15.715424, 16)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
