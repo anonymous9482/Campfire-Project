@@ -11,11 +11,11 @@ var floated = false
 var hasTorch = true;
 
 var inRope = false;
-
-var ropeEntered : Callable = enterRope
-var ropeExited : Callable = exitRope
+var holdingRope = false;
 
 var onFloor : bool
+
+@export var ropeFriction = 500
 
 func _physics_process(delta: float) -> void:
 	onFloor = is_on_floor()
@@ -27,6 +27,23 @@ func _physics_process(delta: float) -> void:
 	
 	handle_gravity(delta);
 
+	if (inRope):
+		onFloor = true
+		##print("should be on rope")
+		if (Input.is_action_pressed("Use Rope")):
+			if !(Input.is_action_pressed("Climb Down") || Input.is_action_pressed("Climb Up")):
+				velocity.y = move_toward(velocity.y,0,200*delta)
+			else:
+				if (Input.is_action_pressed("Climb Up")):
+					velocity.y = SPEED/-2 ##move_toward(velocity.y,SPEED/2,100*delta);
+					print("climbing down")
+				if (Input.is_action_pressed("Climb Down")):
+					velocity.y = SPEED/2 ##move_toward(velocity.y,SPEED/-2,100*delta);
+					print("climbing up")
+			holdingRope = true;
+		else:
+			holdingRope = false;
+			
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and (onFloor or floating):
 		velocity.y = JUMP_VELOCITY
@@ -52,7 +69,10 @@ func handle_gravity(delta: float):
 				print("Slowly going down")
 	else:
 		floating = false;
-		floated = false
+	if falling:
+		if (!holdingRope):
+			print("Falling")
+			velocity += get_gravity() * delta;
 
 
 func _on_coyote_timer_timeout() -> void:
@@ -62,8 +82,20 @@ func _on_coyote_timer_timeout() -> void:
 func gainTorch(energy: float):
 	$Torch/PointLight2D.energy = energy
 	$"Torch/Burning Out".start()
-	
-func enterRope():
-	inRope = true;
-func exitRope():
-	inRope = false;
+
+
+
+func _on_rope_detector_area_entered(area: Area2D) -> void:
+	print("Entered")
+	if area in get_tree().get_nodes_in_group("Rope"):
+		print(" and recieved")
+		inRope = true;
+
+
+func _on_rope_detector_area_exited(area: Area2D) -> void:
+	print("Exited")
+	if area in get_tree().get_nodes_in_group("Rope"):
+		print(" and left")
+		inRope = false;
+		falling = !is_on_floor()
+		holdingRope = false
