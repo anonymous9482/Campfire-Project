@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://tvvvxpnl1pfe"]
 
 [ext_resource type="Texture2D" uid="uid://boyq4ujj5p2w" path="res://icon.svg" id="1_0756u"]
+[ext_resource type="Script" uid="uid://bief3ryq1au8a" path="res://rope.gd" id="1_nmccy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmccy"]
 size = Vector2(20, 10)
 
 [node name="Rope" type="Node2D" unique_id=1184049864]
+script = ExtResource("1_nmccy")
+player = null
 
 [node name="Hook" type="StaticBody2D" parent="." unique_id=540628053]
 
@@ -30,3 +33,6 @@ shape = SubResource("RectangleShape2D_nmccy")
 position = Vector2(18.2, 59)
 scale = Vector2(0.05, 1)
 texture = ExtResource("1_0756u")
+
+[connection signal="body_entered" from="Line" to="." method="_on_line_body_entered"]
+[connection signal="body_exited" from="Line" to="." method="_on_line_body_exited"]

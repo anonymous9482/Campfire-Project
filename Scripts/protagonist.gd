@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Protagonist extends CharacterBody2D
 
 
 @export var SPEED = 75.0
@@ -9,7 +9,19 @@ var floating = false;
 
 var hasTorch = true;
 
+var inRope = false;
+
+var ropeEntered : Callable = enterRope
+var ropeExited : Callable = exitRope
+
+var onFloor : bool
+
 func _physics_process(delta: float) -> void:
+	onFloor = is_on_floor()
+	if (inRope):
+		onFloor = true
+		if (Input.is_action_pressed("Use Rope")):
+			velocity.y = move_toward(velocity.y,0,2*delta)
 	
 	handle_gravity(delta);
 
@@ -28,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_gravity(delta: float): 
-	if !is_on_floor():
+	if !onFloor:
 		if velocity.y <= 0:
 			velocity += get_gravity() * delta;
 		if !floating:
@@ -48,3 +60,8 @@ func _on_coyote_timer_timeout() -> void:
 func gainTorch(energy: float):
 	$Torch/PointLight2D.energy = energy
 	$"Torch/Burning Out".start()
+	
+func enterRope():
+	inRope = true;
+func exitRope():
+	inRope = false;

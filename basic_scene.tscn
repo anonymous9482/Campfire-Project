@@ -258,8 +258,9 @@ color = Color(0.051970966, 0.05197096, 0.05197095, 1)
 [node name="GrabbleTorch" parent="." unique_id=1143973062 instance=ExtResource("5_r4pny")]
 position = Vector2(78, 11)
 
-[node name="Rope" parent="." unique_id=1184049864 instance=ExtResource("6_5f4ac")]
+[node name="Rope" parent="." unique_id=1184049864 node_paths=PackedStringArray("player") instance=ExtResource("6_5f4ac")]
 position = Vector2(113, 19)
+player = NodePath("../Protagonist")
 
 [connection signal="timeout" from="Protagonist/CoyoteTimer" to="Protagonist" method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Protagonist/Torch/Burning Out" to="Protagonist/Torch" method="_on_burning_out_timeout"]
