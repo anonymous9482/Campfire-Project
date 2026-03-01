@@ -9,4 +9,4 @@ func _on_burning_out_timeout() -> void:
 	if $PointLight2D.energy > 0:
 		$PointLight2D.energy -= burningOutCounter;
 		$"Burning Out".start()
-	print($PointLight2D.energy);
+	##print($PointLight2D.energy);
