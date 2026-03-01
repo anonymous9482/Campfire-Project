@@ -209,3 +209,15 @@ func _on_final_torch_body_entered(body: Node2D) -> void:
 		$"../Monster".position = Vector2(-1529.0,54.0)
 		$"../Monster/NavigationRegion2D".enabled = true
 		Globals.canLeave = true;
+
+
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body in get_tree().get_nodes_in_group("Protagonist") && Globals.canLeave:
+		get_tree().change_scene_to_file("res://Level 1.tscn")
+		Globals.currentScene = "res://Level 1.tscn"
+
+
+func _on_level_1_exit_body_entered(body: Node2D) -> void:
+	if body in get_tree().get_nodes_in_group("Protagonist"):
+		get_tree().change_scene_to_file("res://Level 2.tscn")
+		Globals.currentScene = "res://Level 2.tscn"
